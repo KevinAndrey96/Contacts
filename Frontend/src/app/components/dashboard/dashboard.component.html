@@ -1,0 +1,130 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container" style="padding-top: 100px;">
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading c-list">
+                    <span class="title">New contact</span>
+                    
+                </div>
+                <div class="container-fluid" style="margin: 50;">
+                    <form>
+                        <div class="form-group">
+                            <label>First tName</label>
+                            <input type="text" name="firstName" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Document Type</label>
+                            <select name="documentType" class="form-control">
+                            	<option value="CC">CC</option>
+                            	<option value="TI">TI</option>
+                            	<option value="CE">CE</option>
+                            	<option value="Other">Other>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Document Number</label>
+                            <input type="number" class="form-control" value="documentNumber" placeholder="Document Number">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="number" class="form-control" value="phone" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <label>Relationship</label>
+                            <select name="documentType" class="form-control">
+                            	<option value="Friend">Friend</option>
+                            	<option value="Family">Family</option>
+                            	<option value="Colleague">Colleague</option>
+                            	<option value="PP">Passport</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-default">Agregar a contactos</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading c-list">
+                    <span class="title">Contacts</span>
+                    
+                </div>
+                
+                
+                
+                <ul class="list-group" id="contact-list">
+                    <li class="list-group-item">
+                        <div class="col-xs-12 col-sm-3">
+                            <button class="btn btn-default">X</button>
+                            <br>
+                            <img src="https://drogaspoliticacultura.net/wp-content/uploads/2017/09/placeholder-user.jpg" alt="Contact" class="img-responsive img-circle" />
+                            <br>
+                        </div>
+                        <div class="col-xs-12 col-sm-9">
+                            <h4>Nombre Nombre</h4>
+                            <h5>Apellido Apellido</h5>
+                            <span>CC</span> <span> 1032485123</span><br>
+                            <span>Tel: </span> <span> 3185563341</span><br>
+                            <span>kaherreras@unal.edu.co</span>                            
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default" >
+                <div class="panel-heading c-list">
+                    <span class="title">Users to add</span>
+                    
+                </div>
+                    <div class="col-md-4">
+                    <ul class="list-group" id="contact-list" ngFor="let usuario of usuarios">
+                        <li class="list-group-item">
+                            <div class="col-xs-12 col-sm-3">
+                                <button class="btn btn-default">+</button>
+                                <br>
+                                <img width="100" src="https://drogaspoliticacultura.net/wp-content/uploads/2017/09/placeholder-user.jpg" alt="Contact" class="img-responsive img-circle" />
+                                <br>
+                            </div>
+                            <div class="col-xs-12 col-sm-9">
+                                <h4>{{user}}</h4>
+                                <h5>Apellido Apellido</h5>
+                                <span>CC</span> <span> 1032485123</span><br>
+                                <span>Tel: </span> <span> 3185563341</span><br>
+                                <span>kaherreras@unal.edu.co</span>                            
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                    
+            </div>
+        </div>
+        
+    </div>
+    
+
+    
+        
+	
+    
+    
+</div>
+
