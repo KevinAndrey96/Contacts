@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json;
+using MongoDB.Driver;
+using System.Diagnostics.Eventing.Reader;
 
 namespace API.Controllers
 {
@@ -96,14 +98,29 @@ namespace API.Controllers
         // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        private IMongoCollection<Log> Logsbd;
+
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("DirectoryLogs");
+
+            Logsbd = database.GetCollection<Log>("Logs");
+            //log = database.GetCollection<Car>("");
+            DateTime thisDay = DateTime.Today;
+            Log logs = new Log()
+            {
+                Message = "Usuario Registrado "+user.email,
+                Date = thisDay.ToString()
+            };
+            //string json = JsonConvert.SerializeObject(logs);
+            Logsbd.InsertOne(logs);
+
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
-            
         }
 
         // DELETE: api/Users/5
